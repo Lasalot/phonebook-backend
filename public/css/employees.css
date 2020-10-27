@@ -1,0 +1,83 @@
+
+
+
+.entries-card{
+    height: 500px;
+    max-width: 300px;
+    background-color: pink;
+    justify-content: center;
+    text-align: center;
+   padding-left: 10px;
+   padding-top: 30px;
+   margin: 30px
+}
+
+.image img {
+    max-height: 200px;
+    max-width: 200px;
+    border-radius: 50%;
+}
+
+.addNewEmployee{
+    display:none;
+}
+
+.addNewEmployee input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+
+
+.top-buttons {
+    padding: 30px;
+    background-image: url('/img/bg_header.png');
+    display:block
+
+}
+
+.top-buttons h1 {
+    color: white;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-bottom:0;
+
+}
+
+.top-buttons button {
+margin-top: 30px
+}
+
+.delete-employee {
+    display:none
+}
+
+.card-deck {
+    background-color: black;
+}
+
+.row {
+    justify-content: center;
+
+}
+
+.col-lg-2 {
+    margin-bottom: 30px;
+    margin-top: 30px;
+    transition: transform .2s
+}
+
+.employee-cards {
+    background-image:url('/img/1085.jpg');
+    background-size: 100%;
+
+}
+
+.col-lg-2:hover {
+    transform:scale(1.2);
+    margin: 20px 20px 20px 20px
+}
