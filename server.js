@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+require('dotenv').config()
 
 
 
@@ -15,61 +16,61 @@ app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json())
 
-const Schema = mongoose.Schema;
-
-const employeesSchema = new Schema({
-    firstName: String,
-    lastName: String,
-    phone: Number,
-    eMail: String,
-    image: String,
-    dateCreated: Date,
-});
-
-const Model = mongoose.model
-const Employee = Model('employees', employeesSchema)
-mongoose.connect('/dolgozok?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://' + process.env.DATABASE + '?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
+}, function (error) {
+    if (error) console.log(error)
+    console.log("DB connection OK")
 })
 
 const db = mongoose.connection;
+
 db.on('error', console.error.bind(console, 'MongoDB Connection error:'));
 const collection = db.collection('employees')
 
 
 
-//GET REQUESTS
-
-// app.get('/', (req,res) => {
-//     tesztAdat.save((err,result) => {
-//         if(err) console.log(err)
-//         console.log(result)
-//         res.send("Got ya data")
-//     })
-//     })
+//GET EMPLOYEES
 
 app.get('/employees', (req, res) => {
-    db.collection('employees').find().toArray().then(results => {
+    collection.find().toArray().then(results => {
         res.render('employees.ejs', { entries: results })
+    })
+    let email = req.query.email
+    console.log(email)
+
+})
+
+//EMAIL ALREADY EXISTS
+
+app.get('/emailExists', (req, res) => {
+    res.render('emailExists')
+
+})
+
+
+
+
+//CREATE EMPLOYEE
+
+app.post('/new-employee', (req, res) => { //**create database info */
+    collection.findOne({
+        email: req.body.email
+    }, function (err, userExists) {
+        if (userExists) {
+            res.redirect('/emailExists')
+
+
+        } else {
+            collection.insertOne(req.body).then(result => { console.log(result) }).catch(error => console.error(error))
+            res.redirect('/employees')
+
+        }
     })
 })
 
-app.get("/new-employee", (req, res) => {
-    res.render("newEmployee.ejs")
-
-})
-
-
-
-//POST REQUESTS
-
-app.post('/new-employee', (req, res) => { //**create database info */
-    db.collection('employees').insertOne(req.body).then(result => { console.log(result) }).catch(error => console.error(error))
-    res.redirect('/employees')
-})
-
-//DELETE REQUEST
+//DELETE EMPLOYEE
 
 app.post('/del-employees', (req, res) => { //FOLYT KÖV//
     db.collection('employees').deleteOne({
@@ -81,4 +82,4 @@ app.post('/del-employees', (req, res) => { //FOLYT KÖV//
 
 
 
-app.listen(3000)
+app.listen(process.env.PORT || 3000)

@@ -1,6 +1,33 @@
+@keyframes fwd{
+    from {height: 0px;}
+    to {height: 31rem;}
+}
+@keyframes bwd{
+    from {height: 31rem;}
+    to {height: 0px;}
+}
 
+@keyframes fwd1{
+    from {height: 0px;}
+    to {height: 8rem;}
+}
+@keyframes bwd1{
+    from {height: 8rem;}
+    to {height: 0px;}
+}
 
-
+.heading-text{
+    font-family: 'Mulish', sans-serif;
+    position: relative;
+    bottom: 2rem;
+}
+.btn-top{
+    z-index: 2;
+    position: relative;
+}
+.addnew-text{
+    font-family: 'Mulish', sans-serif;
+}
 .entries-card{
     height: 500px;
     max-width: 300px;
@@ -16,18 +43,37 @@
     max-height: 200px;
     max-width: 200px;
     border-radius: 50%;
+
 }
 
 .addNewEmployee{
-    display:none;
+      height: 0px;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    z-index: -1;
+    text-align: center;
+    margin: auto;
+}
+
+.new-employee{
+    margin-bottom: 50px;
 }
 
 .addNewEmployee input {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 50%;
+    text-align: center;
+
+    margin: 0.4% auto;
+    height: 3rem;
+width: 40%;
+border-radius: 6px;
+border: 1px solid rgba(0, 0, 0, 0.08);
+box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+.btn-subm{
+    width: 30%;
+    margin-bottom: 10px;
+}
 
 
 .top-buttons {
@@ -53,7 +99,11 @@ margin-top: 30px
 }
 
 .delete-employee {
-    display:none
+    height: 0px;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+
+    text-align: center;
 }
 
 .card-deck {
@@ -65,19 +115,54 @@ margin-top: 30px
 
 }
 
-.col-lg-2 {
-    margin-bottom: 30px;
-    margin-top: 30px;
-    transition: transform .2s
+.col-lg-3 {
+    padding-bottom: 30px;
+    padding-top: 30px;
+    transition: transform .4s;
 }
 
 .employee-cards {
     background-image:url('/img/1085.jpg');
     background-size: 100%;
-
+    z-index: 1;
+    position: relative;
 }
 
-.col-lg-2:hover {
+.col-lg-3:hover {
     transform:scale(1.2);
-    margin: 20px 20px 20px 20px
+    padding: 20px 20px 20px 20px;
+}
+
+#delete-entry-value{
+height: 3rem;
+width: 20%;
+border-radius: 6px;
+border: 1px solid rgba(0, 0, 0, 0.08);
+box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+padding-left: 1%;
+position: relative;
+top: 2rem;
+}
+.btn{
+    height: 3rem;
+border-radius: 6px;
+border: 1px solid rgba(0, 0, 0, 0.08);
+box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+padding-left: 1%;
+position: relative;
+bottom: 0.1rem;
+}
+.btn-del{
+    position: relative;
+    top: 1.9rem;
+}
+
+.card{
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+    text-align: center;
+    padding-top: 20px;
 }

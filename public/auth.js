@@ -11,4 +11,3 @@ else (
   window.location.href = "https://bitninja.io"
 )
 
-process.env.PORT
