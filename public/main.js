@@ -1,18 +1,17 @@
 //ADD NEW EMPLOYEE
 const addNewEmployee = document.querySelector('#add-new-employee')
 const x = document.querySelector('#new-employee')
+
 addNewEmployee.addEventListener('click', _ => {
   if (x.style.display === "block") {
     x.setAttribute("style", "animation-name: bwd;");
     addSleep();
 
   } else {
-    x.setAttribute("style", "animation-name: fwd; display: block;");
+    x.setAttribute("style", "animation-name: fwd;");
     x.style.display = "block"
     console.log("Asd")
   }
-
-
 })
 function sleep1(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -21,6 +20,7 @@ async function addSleep() {
   await sleep1(500);
   x.style.display = "none";
 }
+
 
 
 //DELETE EMPLOYEE
@@ -33,7 +33,7 @@ deleteEmployee.addEventListener('click', _ => {
     deleteEmployee.innerHTML = "Delete one entry"
 
   } else {
-    y.setAttribute("style", "animation-name: fwd1; display: block;");
+    y.setAttribute("style", "animation-name: fwd1;");
     y.style.display = "block"
     deleteEmployee.innerHTML = "Cancel"
   }

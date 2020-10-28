@@ -32,19 +32,20 @@
   <body>
     <!-- DELETE AND ADD BUTTON -->
     <section class="top-buttons">
-      <button id="add-new-employee" class="btn btn-success">
+      <button id="add-new-employee" class="btn btn-outline-light btn-top">
         Add new employee
       </button>
-      <button id="delete-employee-button" type="button" class="btn btn-danger">
+      <button id="delete-employee-button" type="button" class="btn btn-danger btn-top">
         Delete one entry
       </button>
-      <h1>BitNinja Technologies Employees</h1>
+      <img src="img/logo_white.png" class="header-logo" alt="">
+      <!--<h1 class="heading-text">BitNinja Technologies Employees</h1> -->
     </section>
 
     <!-- ADD FORM AND DELETE FORM -->
     <div id="new-employee" class="addNewEmployee form-group" style="display: none;">
-      <h1>Add new employee</h1>
-
+      <h1 class="prompt-text">Add new employee</h1>
+<hr>
       <form action="/new-employee" method="POST">
         <input
           class="form-control form-control-sm"
@@ -88,17 +89,23 @@
           placeholder="Title"
           name="title" required
         />
-        <button class="btn btn-success" type="submit">Submit</button>
+        <button class="btn btn-success btn-subm" type="submit">Submit</button>
       </form>
+      <hr>
     </div>
 
     <div id="delete-employee" class="delete-employee">
+      <div class="remove-text">
+      <h1 class="prompt-text">Remove an employee from the phonebook.</h1>
+      <hr>
+    </div>
       <input
         id="delete-entry-value"
-        placeholder="email"
+        placeholder="Email"
         tpye="email"
         name="email"
       />
+      
       <button id="delete-entry-button" class="btn btn-danger btn-del" type="button">
         Delete Entry
       </button>
@@ -134,5 +141,5 @@
 
     <script src="/main.js"></script>
   </body>
-  <footer><h3>Proudly 👨🏽‍💻 by Taki  &  🖌️ by Mark</h3></footer>
+  <footer><h3 class="footer">Proudly 👨🏽‍💻 by Taki  &  🖌️ by Mark</h3></footer>
 </html>
