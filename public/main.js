@@ -1,4 +1,5 @@
 //ADD NEW EMPLOYEE
+//kekw
 var firstName = document.querySelector('#new-employee').children[2]
 var lastName = document.querySelector('#new-employee').children[2]
 var phone = document.querySelector('#new-employee').children[2]
@@ -40,8 +41,6 @@ async function addSleep() {
 
 }
 
-
-
 //DELETE EMPLOYEE
 const deleteEmployee = document.querySelector('#delete-employee-button')
 const y = document.querySelector('#delete-employee')
@@ -63,11 +62,7 @@ async function delSleep() {
 
   y.style.display = "none";
 }
-
-
 const delButton = document.querySelector('#delete-entry-button')
-
-
 delButton.addEventListener('click', _ => {
 
   const delValue = document.querySelector('#delete-entry-value').value
