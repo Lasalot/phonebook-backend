@@ -1,16 +1,25 @@
 //ADD NEW EMPLOYEE
-const addNewEmployee = document.querySelector('#add-new-employee')
-const x = document.querySelector('#new-employee')
+var firstName = document.querySelector('#new-employee').children[2]
+var lastName = document.querySelector('#new-employee').children[2]
+var phone = document.querySelector('#new-employee').children[2]
+var image = document.querySelector('#new-employee').children[2]
+var email = document.querySelector('#new-employee').children[2]
+var lastPass = document.querySelector('#new-employee').children[2]
+var title = document.querySelector('#new-employee').children[2]
+var addNewEmployee = document.querySelector('#add-new-employee');
+const x = document.querySelector('#new-employee');
 
 addNewEmployee.addEventListener('click', _ => {
   if (x.style.display === "block") {
     x.setAttribute("style", "animation-name: bwd;");
-    addSleep();
+    addSleep()
+
 
   } else {
     x.setAttribute("style", "animation-name: fwd;");
-    x.style.display = "block"
-    console.log("Asd")
+    x.style.display = "block";
+    console.log("ANYAD1")
+
   }
 })
 function sleep1(ms) {
@@ -19,6 +28,16 @@ function sleep1(ms) {
 async function addSleep() {
   await sleep1(500);
   x.style.display = "none";
+  firstName.children[0].value = "";
+  lastName.children[1].value = "";
+  phone.children[2].value = "";
+  image.children[3].value = "";
+  email.children[4].value = "";
+  lastPass.children[5].value = "";
+  title.children[6].value = "";
+
+
+
 }
 
 
