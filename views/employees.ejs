@@ -38,9 +38,13 @@
       <button id="delete-employee-button" type="button" class="btn btn-danger btn-top">
         Delete one entry
       </button>
+      <button id="change-view" type="button" class="btn btn-info btn-top">
+        Table View
+      </button>
       <img src="img/logo_white.png" class="header-logo" alt="">
-      <!--<h1 class="heading-text">BitNinja Technologies Employees</h1> -->
-    </section>
+            </section>
+
+
 
     <!-- ADD FORM AND DELETE FORM -->
     <div id="new-employee" class="addNewEmployee form-group" style="display: none;">
@@ -94,7 +98,8 @@
       <hr>
     </div>
 
-    <div id="delete-employee" class="delete-employee">
+    <!-- DELETE EMPLOYEE FIELD -->
+    <div id="delete-employee" class="delete-employee" >
       <div class="remove-text">
       <h1 class="prompt-text">Remove an employee from the phonebook.</h1>
       <hr>
@@ -105,14 +110,15 @@
         tpye="email"
         name="email"
       />
-      
+
       <button id="delete-entry-button" class="btn btn-danger btn-del" type="button">
         Delete Entry
       </button>
     </div>
 
-    <!-- RENDER EMPLOYEES -->
-    <div class="d-flex employee-cards" style="text-align: center">
+    <!-- RENDER EMPLOYEES CARD VIEW -->
+    <div id="hide-cards" class="hideMyAss">
+    <div class="d-flex employee-cards" style="text-align: center;">
       <div class="row employee-rows" style="position: relative; margin: auto">
         <% for(var i = 0; i < entries.length; i++) {%>
 
@@ -138,6 +144,41 @@
         <% } %>
       </div>
     </div>
+  </div>
+
+    <!-- RENDER EMPLOYEES TABLE VIEW -->
+<table id="employee-table" class="table table-bordered table-hover employeeTable" style="display:none">
+<thead class="thead-dark">
+<tr class="border-bottom">
+
+  <th class="sticky" scope="col">Név</th>
+  <th class="sticky" scope="col">Telefon</th>
+  <th class="sticky" scope="col">Email</th>
+  <th class="sticky" scope="col">LastPass Email</th>
+
+</tr>
+
+</thead>
+
+ <% for(var i = 0; i < entries.length; i++) {%>
+  <tbody>
+
+<th scope="col" class="tableRow"><%= entries[i].lastName %> <%= entries[i].firstName %></th>
+<th scope="col" class="tableRow"><%= entries[i].phone %></th>
+<th scope="col" class="tableRow"><a href="mailto:<%= entries[i].email %>"><%= entries[i].email %></a></th>
+<th scope="col" class="tableRow"><%= entries[i].lastPassEmail %></th>
+
+
+</tbody>
+        <% } %>
+
+
+
+
+
+      </table>
+
+
 
     <script src="/main.js"></script>
   </body>

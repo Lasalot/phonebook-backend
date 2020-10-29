@@ -31,7 +31,7 @@ top: 2rem;
     z-index: 5;
     position: relative;
     top: 2rem;
-    
+
 }
 .header-logo{
     height: 7rem;
@@ -76,7 +76,7 @@ top: 2rem;
     z-index: -1;
     text-align: center;
     margin: auto;
-    
+
 }
 
 .new-employee{
@@ -117,6 +117,7 @@ margin-top: 30px
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
     text-align: center;
+    visibility:hidden;
 }
 
 .card-deck {
@@ -141,6 +142,8 @@ margin-top: 30px
     z-index: 1;
     position: relative;
     min-height: 35rem;
+
+
 }
 
 .col-lg-3:hover {
@@ -200,4 +203,37 @@ footer {
     background-image:url('/img/backgnd.png');
     background-size: 100%;
     margin-bottom: 0;
+}
+
+
+/* EMPLOYEE ROW VIEW */
+
+.sticky{
+    position:sticky;
+    top: 0;
+    text-align: center;
+    border-bottom: 1px solid black !important;
+
+
+
+}
+
+.tableRow{
+    border: 1px solid black;
+    text-align: center;
+
+
+}
+
+.tableRow img {
+    height: 100px;
+
+}
+
+.hideMyAss {
+    display:block;
+}
+
+table {
+    width: 100%;
 }
