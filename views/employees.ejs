@@ -152,6 +152,7 @@
 <tr class="border-bottom">
 
   <th class="sticky" scope="col">Név</th>
+  <th class="sticky" scope="col">Titulus</th>
   <th class="sticky" scope="col">Telefon</th>
   <th class="sticky" scope="col">Email</th>
   <th class="sticky" scope="col">LastPass Email</th>
@@ -164,6 +165,7 @@
   <tbody>
 
 <th scope="col" class="tableRow"><%= entries[i].lastName %> <%= entries[i].firstName %></th>
+<th scope="col" class="tableRow"><%= entries[i].title %></th>
 <th scope="col" class="tableRow"><%= entries[i].phone %></th>
 <th scope="col" class="tableRow"><a href="mailto:<%= entries[i].email %>"><%= entries[i].email %></a></th>
 <th scope="col" class="tableRow"><%= entries[i].lastPassEmail %></th>

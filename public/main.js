@@ -66,8 +66,7 @@ deleteEmployee.addEventListener('click', _ => {
 
 async function delSleep() {
   await sleep1(500);
-
-  y.style.visibility = 'hidden';
+  y.style.display = 'none';
 }
 
 
