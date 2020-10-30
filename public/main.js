@@ -81,6 +81,41 @@ async function delSleep() {
 }
 
 
+// UPDATE EMPLOYEE
+var updateEmployee = document.querySelector('#updateEmployee');
+const z = document.querySelector('#update-employee');
+
+updateEmployee.addEventListener('click', _ => {
+  if (z.style.display === "block") {
+    z.setAttribute("style", "animation-name: bwd;");
+    updateEmployee.innerHTML = "Update data"
+    updateSleep()
+
+
+  } else {
+    z.setAttribute("style", "animation-name: fwd;");
+    z.style.display = "block";
+    updateEmployee.innerHTML = "Cancel"
+
+
+
+  }
+})
+async function updateSleep() {
+  await sleep1(500);
+  z.style.display = "none";
+  firstName.children[0].value = "";
+  lastName.children[1].value = "";
+  phone.children[2].value = "";
+  image.children[3].value = "";
+  email.children[4].value = "";
+  lastPass.children[5].value = "";
+  title.children[6].value = "";
+
+
+
+}
+
 
 // ASK PROMPT ON DELETE
 const delButton = document.querySelector('#delete-entry-button')
@@ -125,8 +160,5 @@ changeView.addEventListener('click', _ => {
 
 
 })
-
-
-
 
 
