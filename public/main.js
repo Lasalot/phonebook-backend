@@ -81,29 +81,51 @@ async function delSleep() {
 }
 
 
+// CHANGE TO TABLE VIEW OR CARD VIEW (VICA VERSA)
+
+const changeView = document.querySelector('#change-view');
+const employeeTable = document.querySelector('.table-hide');
+const employeeCard = document.querySelector('#hide-cards');
+changeView.addEventListener('click', _ => {
+
+  if (employeeCard.style.display != "none") {
+    employeeCard.style.display = "none";
+    employeeTable.style.display = "table"
+    changeView.innerHTML = "Card View"
+
+  } else if (changeView.innerHTML === "Card View") {
+    employeeCard.style.display = "block";
+    employeeTable.style.display = "none"
+    changeView.innerHTML = "Table View"
+  }
+
+
+});
+
+
 // UPDATE EMPLOYEE
 var updateEmployee = document.querySelector('#updateEmployee');
-const z = document.querySelector('#update-employee');
+const u = document.querySelector('#update-employee');
 
 updateEmployee.addEventListener('click', _ => {
-  if (z.style.display === "block") {
-    z.setAttribute("style", "animation-name: bwd;");
+  if (u.style.display === "block") {
+    u.setAttribute("style", "animation-name: bwd;");
     updateEmployee.innerHTML = "Update data"
     updateSleep()
 
 
   } else {
-    z.setAttribute("style", "animation-name: fwd;");
-    z.style.display = "block";
+    u.setAttribute("style", "animation-name: fwd;");
+    u.style.display = "block";
     updateEmployee.innerHTML = "Cancel"
 
 
 
   }
-})
+});
 async function updateSleep() {
   await sleep1(500);
-  z.style.display = "none";
+  u.style.display = "none";
   firstName.children[0].value = "";
   lastName.children[1].value = "";
   phone.children[2].value = "";
@@ -114,7 +136,7 @@ async function updateSleep() {
 
 
 
-}
+};
 
 
 // ASK PROMPT ON DELETE
@@ -140,25 +162,6 @@ delButton.addEventListener('click', _ => {
 })
 
 
-// CHANGE TO TABLE VIEW OR CARD VIEW (VICA VERSA)
 
-const changeView = document.querySelector('#change-view')
-const employeeTable = document.querySelector('.table-hide')
-const employeeCard = document.querySelector('#hide-cards')
-changeView.addEventListener('click', _ => {
-
-  if (employeeCard.style.display != "none") {
-    employeeCard.style.display = "none";
-    employeeTable.style.display = "table"
-    changeView.innerHTML = "Card View"
-
-  } else if (changeView.innerHTML === "Card View") {
-    employeeCard.style.display = "block";
-    employeeTable.style.display = "none"
-    changeView.innerHTML = "Table View"
-  }
-
-
-})
 
 

@@ -45,13 +45,12 @@
       <button id="delete-employee-button" type="button" class="btn btn-danger btn-top">
         Remove an employee
       </button>
-      <button id="change-view" type="button" class="btn btn-info btn-top">
-        Table View
-      </button>
-      <button  disabled id="updateEmployee" style="float:right" id="change-view" type="button" class="btn btn-outline-primary btn-top">
+      </div>
+      <!-- <button  disabled id="updateEmployee" style="float:right" id="change-view" type="button" class="btn btn-outline-primary btn-top">
         Update data
-      </button>
+      </button> -->
       <img src="img/logo_white.png" class="header-logo" alt="">
+
             </section>
 
 
@@ -191,7 +190,7 @@
       <div class="row employee-rows" style="position: relative; margin: auto">
         <% for(var i = 0; i < entries.length; i++) {%>
 
-        <div  class="col-lg-3">
+        <div  class="col-lg-3 col-md-6">
           <div id="employee-card" class="card flex">
             <img class="card-img-top" src="<%= entries[i].image %>" alt="<%= entries[i].lastName %> <%= entries[i].firstName %>" />
             <div class="card-body">
@@ -240,7 +239,7 @@
     <th scope="row"><img class="img-table" src="<%= entries[i].image %>" alt="<%= entries[i].lastName %> <%= entries[i].firstName %>" /><%= entries[i].lastName %> <%= entries[i].firstName %></th>
   <td><%= entries[i].title %></td>
 <td><%= entries[i].phone %></td>
-<td><a class="email-text" href="mailto:<%= entries[i].email %>"><%= entries[i].email %></a></td>
+<td class="email-maxw"><a class="email-text" href="mailto:<%= entries[i].email %>"><%= entries[i].email %></a></td>
 <td><%= entries[i].lastPassEmail %></td>
 </tr>
 <% } %>

@@ -11,10 +11,10 @@
 
 @keyframes fwd1{
     from {height: 0px;}
-    to {height: 13rem;}
+    to {height: 15rem;}
 }
 @keyframes bwd1{
-    from {height: 13rem;}
+    from {height: 15rem;}
     to {height: 0px;}
 }
 @keyframes fwd2{
@@ -29,13 +29,42 @@
     position: relative;
 top: 2rem;
 }
+@media screen and (max-width:699px){
+    .btn-top{
+        z-index: 5;
+        position: relative;
+        top: 2rem;
+        width: 7.5rem;
+        font-size: 13px !important;
+    }  
+.header-logo{
+    height: 3rem;
+}
+.top-buttons{
+    max-height: 14rem;
+}
+}
+@media screen and (max-width: 1700px){
+    .top-buttons{
+        min-height: 13rem;
+    }
+    .btn-top, .btn-show{
+        position: relative;
+        top: 4rem !important;
+    }
+}
 
+@media screen and (min-width: 700px){
 .btn-top{
     z-index: 5;
     position: relative;
     top: 2rem;
     width: 12rem;
-    
+}
+
+.header-logo{
+    height: 5rem;
+}
 }
 .hide-btn{
     z-index: 5;
@@ -53,7 +82,6 @@ top: 2rem;
     width: 2.5rem;
 }
 .header-logo{
-    height: 6rem;
     position: relative;
     margin: auto;
     display: flex;
@@ -64,10 +92,10 @@ top: 2rem;
 
 .top-buttons {
     padding: 30px;
+    max-height: 10rem;
     /*background-image: url('/img/bg_header.png');*/
     display:block;
     background-color: #141324;
-    max-height: 10rem;
     font-family: 'Mulish', sans-serif;
     font-weight: 900;
 }
@@ -102,8 +130,6 @@ top: 2rem;
     text-align: center;
     margin: auto;
 }
-
-
 
 .new-employee{
     margin-bottom: 50px;
@@ -143,7 +169,6 @@ margin-top: 30px
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
     text-align: center;
-
 }
 
 .card-deck {
@@ -227,6 +252,7 @@ footer{
 }
 #delete-employee{
     background-color: #F7F6F7;
+    height: 5rem;
 }
 #new-employee{
     background-color: #F7F6F7;
@@ -234,7 +260,6 @@ footer{
 }
 body{
    background-color: #F7F6F7;
-  
 }
 
 /* EMPLOYEE ROW VIEW */
@@ -245,6 +270,9 @@ body{
 .email-text:hover{
     color: white;
     font-weight: bold;
+}
+.email-maxw{
+    max-width:200px !important;
 }
 .table-hide{
     
