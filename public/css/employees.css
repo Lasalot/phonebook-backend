@@ -77,8 +77,11 @@ top: 2rem;
     z-index: -1;
     text-align: center;
     margin: auto;
+    margin-bottom: 80px;
 
 }
+
+
 
 .new-employee{
     margin-bottom: 50px;
@@ -238,4 +241,15 @@ footer {
 
 table {
     width: 100%;
+}
+
+
+/* EDIT EMPLOYEE DATA */
+
+#editButton:hover {
+   cursor: pointer;
+}
+
+textarea:focus, input:focus {
+    outline:none;
 }

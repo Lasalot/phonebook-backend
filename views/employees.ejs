@@ -41,6 +41,9 @@
       <button id="change-view" type="button" class="btn btn-info btn-top">
         Table View
       </button>
+      <button id="updateEmployee" style="float:right" id="change-view" type="button" class="btn btn-outline-primary btn-top">
+        Update data
+      </button>
       <img src="img/logo_white.png" class="header-logo" alt="">
             </section>
 
@@ -116,6 +119,65 @@
       </button>
     </div>
 
+
+    <!-- UPDATE EMPLOYEE FIELD -->
+    <div id="update-employee" class="addNewEmployee form-group" style="display: none; margin-bottom:80px;">
+      <h1 class="prompt-text">Update employee information</h1>
+<hr>
+      <form action="/patch-employee" method="POST">
+        <input
+        class="form-control form-control-sm"
+        type="text"
+        placeholder="Employee ID required"
+        name="_id" required
+      />
+        <input
+          class="form-control form-control-sm"
+          type="text"
+          placeholder="First Name"
+          name="firstName"
+        />
+        <input
+          class="form-control form-control-sm"
+          type="text"
+          placeholder="Last Name"
+          name="lastName"
+        />
+        <input
+          class="form-control form-control-sm"
+          type="tel"
+          placeholder="Phone"
+          name="phone"
+        />
+        <input
+          class="form-control form-control-sm"
+          type="text"
+          placeholder="image-url"
+          name="image"
+        />
+        <input
+          class="form-control form-control-sm"
+          type="email"
+          placeholder="E-Mail"
+          name="email"
+        />
+        <input
+          class="form-control form-control-sm"
+          type="email"
+          placeholder="LastPass Email"
+          name="lastPassEmail"
+        />
+        <input
+          class="form-control form-control-sm"
+          type="text"
+          placeholder="Title"
+          name="title"
+        />
+        <button  class="btn btn-success btn-subm" type="submit">Submit</button>
+      </form>
+      <hr>
+    </div>
+
     <!-- RENDER EMPLOYEES CARD VIEW -->
     <div id="hide-cards" class="hideMyAss">
     <div class="d-flex employee-cards" style="text-align: center;">
@@ -123,7 +185,7 @@
         <% for(var i = 0; i < entries.length; i++) {%>
 
         <div  class="col-lg-3">
-          <div class="card flex">
+          <div id="employee-card" class="card flex">
             <img class="card-img-top" src="<%= entries[i].image %>" alt="<%= entries[i].lastName %> <%= entries[i].firstName %>" />
             <div class="card-body">
               <h5 class="card-title">
@@ -137,6 +199,10 @@
               <li class="list-group-item">
                 LastPass: <%= entries[i].lastPassEmail %>
               </li>
+              <li style="text-decoration: underline;" class="list-group-item" name="_id" id="employee-id">
+              ID: <%= entries[i]._id %>
+              </li>
+
             </ul>
           </div>
         </div>
@@ -169,6 +235,7 @@
 <th scope="col" class="tableRow"><%= entries[i].phone %></th>
 <th scope="col" class="tableRow"><a href="mailto:<%= entries[i].email %>"><%= entries[i].email %></a></th>
 <th scope="col" class="tableRow"><%= entries[i].lastPassEmail %></th>
+
 
 
 </tbody>
