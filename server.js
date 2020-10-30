@@ -55,11 +55,12 @@ app.get('/emailExists', (req, res) => {
 //CREATE EMPLOYEE
 
 function getNextSequenceValue(sequenceName) {
-    var sequenceDocument = db.collection('counters').findAndModify({
+    var sequenceDocument = db.collection('counters').findOneAndReplace({
         query: { _id: sequenceName },
         update: { $inc: { sequence_value: 1 } },
         new: true
     });
+    console.log(sequenceDocument.sequence_value)
     return sequenceDocument.sequence_value;
 }
 
@@ -111,6 +112,15 @@ app.post('/patch-employee', (req, res) => {
     })
 })
 
+
+app.get('/takiteszt', (req, res) => {
+    db.collection('employees').insertOne({
+        "id": getNextSequenceValue("item_id")
+    })
+    res.json({
+        "message": "alrighty"
+    })
+})
 
 
 
