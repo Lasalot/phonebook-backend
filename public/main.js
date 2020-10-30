@@ -2,6 +2,12 @@
 //kekw
 var firstName = document.querySelector('#new-employee').children[2]
 var lastName = document.querySelector('#new-employee').children[2]
+import 'ag-grid-community/dist/styles/ag-grid.css';
+import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+
+
+
+
 var phone = document.querySelector('#new-employee').children[2]
 var image = document.querySelector('#new-employee').children[2]
 var email = document.querySelector('#new-employee').children[2]
@@ -94,8 +100,6 @@ delButton.addEventListener('click', _ => {
 })
 
 
-
-
 // CHANGE TO TABLE VIEW OR CARD VIEW (VICA VERSA)
 
 const changeView = document.querySelector('#change-view')
@@ -116,4 +120,8 @@ changeView.addEventListener('click', _ => {
 
 
 })
+
+
+
+
 
