@@ -2,12 +2,6 @@
 //kekw
 var firstName = document.querySelector('#new-employee').children[2]
 var lastName = document.querySelector('#new-employee').children[2]
-import 'ag-grid-community/dist/styles/ag-grid.css';
-import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
-
-
-
-
 var phone = document.querySelector('#new-employee').children[2]
 var image = document.querySelector('#new-employee').children[2]
 var email = document.querySelector('#new-employee').children[2]
@@ -23,15 +17,10 @@ addNewEmployee.addEventListener('click', _ => {
     x.setAttribute("style", "animation-name: bwd;");
     addNewEmployee.innerHTML = "Add new employee"
     addSleep()
-
-
   } else {
     x.setAttribute("style", "animation-name: fwd;");
     x.style.display = "block";
     addNewEmployee.innerHTML = "Cancel"
-
-
-
   }
 })
 function sleep1(ms) {
@@ -47,9 +36,25 @@ async function addSleep() {
   email.children[4].value = "";
   lastPass.children[5].value = "";
   title.children[6].value = "";
+}
+//show-hide buttons
 
+var showButtons = document.querySelector('#show-hide');
+const z = document.querySelector('.hide-btn');
+showButtons.addEventListener('click', _ => {
+if (z.style.display === "inline-block"){
+  z.setAttribute("style", "animation-name: bwd2;");
+  showSleep();
+  showButtons.innerHTML = ">"
+} else{
+  z.setAttribute("style", "animation-name: fwd2;");
+  z.style.display = "inline-block"
+  showButtons.innerHTML = "<"
+}})
 
-
+async function showSleep() {
+  await sleep1(500);
+  z.style.display = 'none';
 }
 
 //DELETE EMPLOYEE
@@ -59,7 +64,7 @@ deleteEmployee.addEventListener('click', _ => {
   if (y.style.display === "block") {
     y.setAttribute("style", "animation-name: bwd1;");
     delSleep();
-    deleteEmployee.innerHTML = "Delete one entry"
+    deleteEmployee.innerHTML = "Remove an employee"
 
   } else {
     y.setAttribute("style", "animation-name: fwd1;");
@@ -103,13 +108,13 @@ delButton.addEventListener('click', _ => {
 // CHANGE TO TABLE VIEW OR CARD VIEW (VICA VERSA)
 
 const changeView = document.querySelector('#change-view')
-const employeeTable = document.querySelector('#employee-table')
+const employeeTable = document.querySelector('.table-hide')
 const employeeCard = document.querySelector('#hide-cards')
 changeView.addEventListener('click', _ => {
 
   if (employeeCard.style.display != "none") {
     employeeCard.style.display = "none";
-    employeeTable.style.display = "block"
+    employeeTable.style.display = "table"
     changeView.innerHTML = "Card View"
 
   } else if (changeView.innerHTML === "Card View") {
