@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @keyframes fwd{
     from {height: 0px;}
     to {height: 35rem;}
@@ -26,6 +26,7 @@ top: 2rem;
     bottom: 2rem;
     z-index: -1;
     position: relative;
+    font-weight: 900;
 }
 .btn-top{
     z-index: 5;
@@ -193,7 +194,8 @@ footer {
 .footer{
     font-family: 'Mulish', sans-serif;
     font-size: 0.8rem;
-    color: #666666
+    color: #666666;
+    font-weight: 200;
 }
 #delete-employee{
     background-image:url('/img/backgnd.png');
