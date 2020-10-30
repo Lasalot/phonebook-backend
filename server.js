@@ -54,6 +54,15 @@ app.get('/emailExists', (req, res) => {
 
 //CREATE EMPLOYEE
 
+function getNextSequenceValue(sequenceName) {
+    var sequenceDocument = db.collection('counters').findAndModify({
+        query: { _id: sequenceName },
+        update: { $inc: { sequence_value: 1 } },
+        new: true
+    });
+    return sequenceDocument.sequence_value;
+}
+
 app.post('/new-employee', (req, res) => { //**create database info */
     collection.findOne({
         email: req.body.email
@@ -63,7 +72,16 @@ app.post('/new-employee', (req, res) => { //**create database info */
 
 
         } else {
-            collection.insertOne(req.body).then(result => { console.log(result) }).catch(error => console.error(error))
+            collection.insertOne({
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                phone: req.body.phone,
+                image: req.body.image,
+                email: req.body.email,
+                lastPassEmail: req.body.lastPassEmail,
+                title: req.body.title,
+
+            }).then(result => { console.log(result) }).catch(error => console.error(error))
             res.redirect('/employees')
 
         }
@@ -78,6 +96,20 @@ app.post('/del-employees', (req, res) => { //FOLYT KÖV//
     }).then(result => res.json('Entry has been deleted')).then(res.redirect('/employees')).catch(error => console.error(error))
 })
 
+
+// UPDATE EMPLOYEE
+
+app.post('/patch-employee', (req, res) => {
+    collection.findOne({
+        email: req.body.email
+    }, function (err, foundUser) {
+        if (foundUser) {
+            console.log(foundUser)
+        } else {
+            console.log("no user")
+        }
+    })
+})
 
 
 
