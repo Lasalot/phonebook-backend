@@ -34,11 +34,16 @@ const collection = db.collection('employees')
 //GET EMPLOYEES
 
 app.get('/', (req, res) => {
-    collection.find().toArray().then(results => {
-        res.render('employees.ejs', { entries: results })
-    })
-    let email = req.query.email
-    console.log(email)
+    if (req.query.username === process.env.ID && req.query.pass === process.env.PASS) {
+        collection.find().toArray().then(results => {
+            res.render('employees.ejs', { entries: results })
+        })
+    } else {
+        res.json({
+            "error": "You are not permitted to view this page"
+        })
+    }
+
 
 })
 
