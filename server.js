@@ -33,7 +33,7 @@ const collection = db.collection('employees')
 
 //GET EMPLOYEES
 
-app.get('/employees', (req, res) => {
+app.get('/', (req, res) => {
     collection.find().toArray().then(results => {
         res.render('employees.ejs', { entries: results })
     })
@@ -109,16 +109,6 @@ app.post('/patch-employee', (req, res) => {
         } else {
             console.log("no user")
         }
-    })
-})
-
-
-app.get('/takiteszt', (req, res) => {
-    db.collection('employees').insertOne({
-        "id": getNextSequenceValue("item_id")
-    })
-    res.json({
-        "message": "alrighty"
     })
 })
 
