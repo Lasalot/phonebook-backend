@@ -42,15 +42,16 @@ async function addSleep() {
 var showButtons = document.querySelector('#show-hide');
 const z = document.querySelector('.hide-btn');
 showButtons.addEventListener('click', _ => {
-if (z.style.display === "inline-block"){
-  z.setAttribute("style", "animation-name: bwd2;");
-  showSleep();
-  showButtons.innerHTML = ">"
-} else{
-  z.setAttribute("style", "animation-name: fwd2;");
-  z.style.display = "inline-block"
-  showButtons.innerHTML = "<"
-}})
+  if (z.style.display === "inline-block") {
+    z.setAttribute("style", "animation-name: bwd2;");
+    showSleep();
+    showButtons.innerHTML = ">"
+  } else {
+    z.setAttribute("style", "animation-name: fwd2;");
+    z.style.display = "inline-block"
+    showButtons.innerHTML = "<"
+  }
+})
 
 async function showSleep() {
   await sleep1(500);
@@ -103,46 +104,12 @@ changeView.addEventListener('click', _ => {
 });
 
 
-// UPDATE EMPLOYEE
-var updateEmployee = document.querySelector('#updateEmployee');
-const u = document.querySelector('#update-employee');
 
-updateEmployee.addEventListener('click', _ => {
-  if (u.style.display === "block") {
-    u.setAttribute("style", "animation-name: bwd;");
-    updateEmployee.innerHTML = "Update data"
-    updateSleep()
-
-
-  } else {
-    u.setAttribute("style", "animation-name: fwd;");
-    u.style.display = "block";
-    updateEmployee.innerHTML = "Cancel"
-
-
-
-  }
-});
-async function updateSleep() {
-  await sleep1(500);
-  u.style.display = "none";
-  firstName.children[0].value = "";
-  lastName.children[1].value = "";
-  phone.children[2].value = "";
-  image.children[3].value = "";
-  email.children[4].value = "";
-  lastPass.children[5].value = "";
-  title.children[6].value = "";
-
-
-
-};
 
 
 // ASK PROMPT ON DELETE
 const delButton = document.querySelector('#delete-entry-button')
 delButton.addEventListener('click', _ => {
-
   const delValue = document.querySelector('#delete-entry-value').value
   const answer = prompt('Are you sure you wish to delete ' + delValue + "? (Options are : Yes or No)")
 

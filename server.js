@@ -70,6 +70,7 @@ function getNextSequenceValue(sequenceName) {
 }
 
 app.post('/new-employee', (req, res) => { //**create database info */
+    backURL = req.header('Referer') || '/';
     collection.findOne({
         email: req.body.email
     }, function (err, userExists) {
@@ -88,7 +89,7 @@ app.post('/new-employee', (req, res) => { //**create database info */
                 title: req.body.title,
 
             }).then(result => { console.log(result) }).catch(error => console.error(error))
-            res.redirect('/employees')
+            setTimeout((function () { res.redirect('/' + '?' + 'username=' + process.env.ID + '&' + 'pass=' + process.env.PASS) }), 2000);
 
         }
     })
@@ -99,7 +100,7 @@ app.post('/new-employee', (req, res) => { //**create database info */
 app.post('/del-employees', (req, res) => { //FOLYT KÖV//
     db.collection('employees').deleteOne({
         email: req.body.email
-    }).then(result => res.json('Entry has been deleted')).then(res.redirect('/employees')).catch(error => console.error(error))
+    }).then(res.redirect('/employees')).catch(error => console.error(error))
 })
 
 
