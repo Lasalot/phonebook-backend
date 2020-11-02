@@ -205,9 +205,6 @@
               <li class="list-group-item">
                 LastPass: <%= entries[i].lastPassEmail %>
               </li>
-              <li style="text-decoration: underline;" class="list-group-item" name="_id" id="employee-id">
-              ID: <%= entries[i]._id %>
-              </li>
 
             </ul>
           </div>
@@ -232,9 +229,9 @@
 </tr>
 
 </thead>
-<tbody> 
+<tbody>
  <% for(var i = 0; i < entries.length; i++) {%>
-    
+
     <tr>
     <th scope="row"><img class="img-table" src="<%= entries[i].image %>" alt="<%= entries[i].lastName %> <%= entries[i].firstName %>" /><%= entries[i].lastName %> <%= entries[i].firstName %></th>
   <td><%= entries[i].title %></td>
@@ -244,7 +241,7 @@
 </tr>
 <% } %>
              </tbody>
-      </table>      
+      </table>
     <script src="/main.js"></script>
   </body>
   <footer><h3 class="footer">Proudly coded by Taki & designed by Mark.</h3></footer>
