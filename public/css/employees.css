@@ -1,6 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @keyframes fwd{
     from {height: 0px;}
     to {height: 35rem;}
@@ -12,30 +11,77 @@
 
 @keyframes fwd1{
     from {height: 0px;}
-    to {height: 13rem;}
+    to {height: 15rem;}
 }
 @keyframes bwd1{
-    from {height: 13rem;}
+    from {height: 15rem;}
     to {height: 0px;}
+}
+@keyframes fwd2{
+    from{opacity:0;}
+    to{opacity:100;}
+}
+@keyframes bwd2{
+    from{opacity: 1;}
+    to{opacity: 0;}
 }
 .remove-text{
     position: relative;
 top: 2rem;
 }
-.heading-text{
-    font-family: 'Mulish', sans-serif;
-    bottom: 2rem;
-    z-index: -1;
-    position: relative;
+@media screen and (max-width:699px){
+    .btn-top{
+        z-index: 5;
+        position: relative;
+        top: 2rem;
+        width: 7.5rem;
+        font-size: 13px !important;
+    }  
+.header-logo{
+    height: 3rem;
 }
+.top-buttons{
+    max-height: 14rem;
+}
+}
+@media screen and (max-width: 1700px){
+    .top-buttons{
+        min-height: 13rem;
+    }
+    .btn-top, .btn-show{
+        position: relative;
+        top: 4rem !important;
+    }
+}
+
+@media screen and (min-width: 700px){
 .btn-top{
     z-index: 5;
     position: relative;
     top: 2rem;
-    
+    width: 12rem;
+}
+
+.header-logo{
+    height: 5rem;
+}
+}
+.hide-btn{
+    z-index: 5;
+    position: relative;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    display: inline-block;
+}
+.btn-show{
+    z-index: 5;
+    position: relative;
+    top: 2rem;
+    font-family: 'Mulish', sans-serif;
+    font-weight: 900;
+    width: 2.5rem;
 }
 .header-logo{
-    height: 7rem;
     position: relative;
     margin: auto;
     display: flex;
@@ -43,16 +89,22 @@ top: 2rem;
     justify-content: center;
     bottom: 5rem;
 }
+
 .top-buttons {
     padding: 30px;
+    max-height: 10rem;
     /*background-image: url('/img/bg_header.png');*/
     display:block;
     background-color: #141324;
-    max-height: 10rem;
+    font-family: 'Mulish', sans-serif;
+    font-weight: 900;
 }
+
 .prompt-text{
     font-family: 'Mulish', sans-serif;
+    font-weight: 900;
 }
+
 .entries-card{
     height: 500px;
     max-width: 300px;
@@ -77,7 +129,6 @@ top: 2rem;
     z-index: -1;
     text-align: center;
     margin: auto;
-    
 }
 
 .new-employee{
@@ -99,9 +150,6 @@ box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
     margin-bottom: 10px;
 }
 
-
-
-
 .top-buttons h1 {
     color: white;
     z-index: 0;
@@ -110,7 +158,6 @@ box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
     justify-content: center;
     text-align: center;
     margin-bottom:0;
-
 }
 
 .top-buttons button {
@@ -140,9 +187,9 @@ margin-top: 30px
 }
 
 .employee-cards {
-    background-image:url('/img/backgnd.png');
-    background-size: 100%;
-    background-color: blue;
+    /* background-image:url('/img/backgnd.png');
+    background-size: 100%; */
+    background-color: #F7F6F7;
     z-index: 1;
     position: relative;
     min-height: 35rem;
@@ -163,6 +210,7 @@ padding-left: 1%;
 position: relative;
 top: 2rem;
 }
+
 .btn{
     height: 3rem;
 border-radius: 6px;
@@ -173,6 +221,7 @@ position: relative;
 bottom: 0.1rem;
 font-family: 'Mulish', sans-serif;
 }
+
 .btn-del{
     position: relative;
     top: 1.9rem;
@@ -184,25 +233,55 @@ font-family: 'Mulish', sans-serif;
     max-width: 80%;
     justify-content: center;
     margin: auto;
+    font-family: 'Mulish', sans-serif;
+    font-weight: 400;
 }
 
-footer {
+footer{
     text-align: center;
     padding-top: 20px;
-    background-image:url('/img/backgnd.png');
-    background-size: 100%;
+    /* background-image:url('/img/backgnd.png');
+    background-size: 100%; */
+    background-color: #F7F6F7;
 }
 .footer{
     font-family: 'Mulish', sans-serif;
     font-size: 0.8rem;
-    color: #666666
+    color: #666666;
+    font-weight: 200;
 }
 #delete-employee{
-    background-image:url('/img/backgnd.png');
-    background-size: 100%;
+    background-color: #F7F6F7;
+    height: 5rem;
 }
 #new-employee{
-    background-image:url('/img/backgnd.png');
-    background-size: 100%;
+    background-color: #F7F6F7;
     margin-bottom: 0;
+}
+body{
+   background-color: #F7F6F7;
+}
+
+/* EMPLOYEE ROW VIEW */
+
+.email-text {
+    color: #e84545;
+}
+.email-text:hover{
+    color: white;
+    font-weight: bold;
+}
+.email-maxw{
+    max-width:200px !important;
+}
+.table-hide{
+    
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+.img-table{
+    width: 2rem;
+    border-radius: 50%;
+    margin-right: 2%;
 }

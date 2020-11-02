@@ -32,15 +32,28 @@
   <body>
     <!-- DELETE AND ADD BUTTON -->
     <section class="top-buttons">
+      <button id="show-hide" type="button" class="btn btn-outline-light btn-show">
+        >
+      </button>
+      <div class="hide-btn" style="display: none;">
+      <button id="change-view" type="button" class="btn btn-outline-info btn-top">
+        Table View
+      </button>
       <button id="add-new-employee" class="btn btn-outline-light btn-top">
         Add new employee
       </button>
       <button id="delete-employee-button" type="button" class="btn btn-danger btn-top">
-        Delete one entry
+        Remove an employee
       </button>
+      </div>
+      <!-- <button  disabled id="updateEmployee" style="float:right" id="change-view" type="button" class="btn btn-outline-primary btn-top">
+        Update data
+      </button> -->
       <img src="img/logo_white.png" class="header-logo" alt="">
-      <!--<h1 class="heading-text">BitNinja Technologies Employees</h1> -->
-    </section>
+
+            </section>
+
+
 
     <!-- ADD FORM AND DELETE FORM -->
     <div id="new-employee" class="addNewEmployee form-group" style="display: none;">
@@ -94,7 +107,8 @@
       <hr>
     </div>
 
-    <div id="delete-employee" class="delete-employee">
+    <!-- DELETE EMPLOYEE FIELD -->
+    <div id="delete-employee" class="delete-employee" style="display:none" >
       <div class="remove-text">
       <h1 class="prompt-text">Remove an employee from the phonebook.</h1>
       <hr>
@@ -105,19 +119,79 @@
         tpye="email"
         name="email"
       />
-      
+
       <button id="delete-entry-button" class="btn btn-danger btn-del" type="button">
-        Delete Entry
+        Remove employee
       </button>
     </div>
 
-    <!-- RENDER EMPLOYEES -->
-    <div class="d-flex employee-cards" style="text-align: center">
+
+    <!-- UPDATE EMPLOYEE FIELD -->
+    <div id="update-employee" class="addNewEmployee form-group" style="display: none; margin-bottom:80px;">
+      <h1 class="prompt-text">Update employee information</h1>
+<hr>
+      <form action="/patch-employee" method="POST">
+        <input
+        class="form-control form-control-sm"
+        type="text"
+        placeholder="Employee ID required"
+        name="_id" required
+      />
+        <input
+          class="form-control form-control-sm"
+          type="text"
+          placeholder="First Name"
+          name="firstName"
+        />
+        <input
+          class="form-control form-control-sm"
+          type="text"
+          placeholder="Last Name"
+          name="lastName"
+        />
+        <input
+          class="form-control form-control-sm"
+          type="tel"
+          placeholder="Phone"
+          name="phone"
+        />
+        <input
+          class="form-control form-control-sm"
+          type="text"
+          placeholder="image-url"
+          name="image"
+        />
+        <input
+          class="form-control form-control-sm"
+          type="email"
+          placeholder="E-Mail"
+          name="email"
+        />
+        <input
+          class="form-control form-control-sm"
+          type="email"
+          placeholder="LastPass Email"
+          name="lastPassEmail"
+        />
+        <input
+          class="form-control form-control-sm"
+          type="text"
+          placeholder="Title"
+          name="title"
+        />
+        <button  class="btn btn-success btn-subm" type="submit">Submit</button>
+      </form>
+      <hr>
+    </div>
+
+    <!-- RENDER EMPLOYEES CARD VIEW -->
+    <div id="hide-cards" class="hideMyAss">
+    <div class="d-flex employee-cards" style="text-align: center;">
       <div class="row employee-rows" style="position: relative; margin: auto">
         <% for(var i = 0; i < entries.length; i++) {%>
 
-        <div  class="col-lg-3">
-          <div class="card flex">
+        <div  class="col-lg-3 col-md-6">
+          <div id="employee-card" class="card flex">
             <img class="card-img-top" src="<%= entries[i].image %>" alt="<%= entries[i].lastName %> <%= entries[i].firstName %>" />
             <div class="card-body">
               <h5 class="card-title">
@@ -131,6 +205,7 @@
               <li class="list-group-item">
                 LastPass: <%= entries[i].lastPassEmail %>
               </li>
+
             </ul>
           </div>
         </div>
@@ -138,8 +213,36 @@
         <% } %>
       </div>
     </div>
+  </div>
 
+    <!-- RENDER EMPLOYEES TABLE VIEW -->
+<table class="table table-hover table-dark table-hide table-striped" style="display:none">
+<thead>
+<tr>
+
+  <th scope="col">Name</th>
+  <th scope="col">Title</th>
+  <th scope="col">Phone</th>
+  <th scope="col">Email</th>
+  <th scope="col">LastPass Email</th>
+
+</tr>
+
+</thead>
+<tbody>
+ <% for(var i = 0; i < entries.length; i++) {%>
+
+    <tr>
+    <th scope="row"><img class="img-table" src="<%= entries[i].image %>" alt="<%= entries[i].lastName %> <%= entries[i].firstName %>" /><%= entries[i].lastName %> <%= entries[i].firstName %></th>
+  <td><%= entries[i].title %></td>
+<td><%= entries[i].phone %></td>
+<td class="email-maxw"><a class="email-text" href="mailto:<%= entries[i].email %>"><%= entries[i].email %></a></td>
+<td><%= entries[i].lastPassEmail %></td>
+</tr>
+<% } %>
+             </tbody>
+      </table>
     <script src="/main.js"></script>
   </body>
-  <footer><h3 class="footer">Proudly 👨🏽‍💻 by Taki  &  🖌️ by Mark</h3></footer>
+  <footer><h3 class="footer">Proudly coded by Taki & designed by Mark.</h3></footer>
 </html>
