@@ -16,6 +16,8 @@ app.set('view engine', 'ejs')
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json())
 
+// MONGOOSE
+
 mongoose.connect('mongodb+srv://' + process.env.DATABASE + '?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -23,13 +25,40 @@ mongoose.connect('mongodb+srv://' + process.env.DATABASE + '?retryWrites=true&w=
     if (error) console.log(error)
     console.log("DB connection OK")
 })
-
 const db = mongoose.connection;
+
+let Schema = mongoose.Schema
+let employeesSchema = new Schema({
+    firstName: String,
+    lastName: String,
+    email: String,
+    phone: Number,
+    image: String,
+    lastPassEmail: String,
+    title: String,
+    dateAdded: Date,
+})
+const Model = mongoose.model
+const Employee = Model('Employees', employeesSchema)
 
 db.on('error', console.error.bind(console, 'MongoDB Connection error:'));
 const collection = db.collection('employees')
 
+////////////////////////////
 
+app.post('/test', (req, res) => {
+    let Tszt = new Employee({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName
+    })
+
+    Tszt.save((err, result) => {
+        if (err) console.log(err)
+        console.log(result);
+    })
+
+    res.json({ "message": "data has been saved" })
+})
 
 //GET EMPLOYEES
 
@@ -58,20 +87,12 @@ app.get('/emailExists', (req, res) => {
 
 
 //CREATE EMPLOYEE
-
-function getNextSequenceValue(sequenceName) {
-    var sequenceDocument = db.collection('counters').findOneAndReplace({
-        query: { _id: sequenceName },
-        update: { $inc: { sequence_value: 1 } },
-        new: true
-    });
-    console.log(sequenceDocument.sequence_value)
-    return sequenceDocument.sequence_value;
-}
-
 app.post('/new-employee', (req, res) => { //**create database info */
-    backURL = req.header('Referer') || '/';
-    collection.findOne({
+    let currDate = new Date()
+
+
+
+    Employee.findOne({
         email: req.body.email
     }, function (err, userExists) {
         if (userExists) {
@@ -79,16 +100,17 @@ app.post('/new-employee', (req, res) => { //**create database info */
 
 
         } else {
-            collection.insertOne({
+            let data = new Employee({
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
+                email: req.body.email,
                 phone: req.body.phone,
                 image: req.body.image,
-                email: req.body.email,
                 lastPassEmail: req.body.lastPassEmail,
                 title: req.body.title,
-
-            }).then(result => { console.log(result) }).catch(error => console.error(error))
+                dateAdded: currDate
+            })
+            data.save(function (err) { if (err) { console.log(err) } }).then(result => { console.log(result) }).catch(error => console.error(error))
             setTimeout((function () { res.redirect('/' + '?' + 'username=' + process.env.ID + '&' + 'pass=' + process.env.PASS) }), 2000);
 
         }
@@ -98,7 +120,7 @@ app.post('/new-employee', (req, res) => { //**create database info */
 //DELETE EMPLOYEE
 
 app.post('/del-employees', (req, res) => { //FOLYT KÖV//
-    db.collection('employees').deleteOne({
+    Employee.deleteOne({
         email: req.body.email
     }).then(res.redirect('/employees')).catch(error => console.error(error))
 })
@@ -107,14 +129,11 @@ app.post('/del-employees', (req, res) => { //FOLYT KÖV//
 // UPDATE EMPLOYEE
 
 app.post('/patch-employee', (req, res) => {
-    collection.findOne({
-        email: req.body.email
-    }, function (err, foundUser) {
-        if (foundUser) {
-            console.log(foundUser)
-        } else {
-            console.log("no user")
-        }
+    Employee.find({
+        _id: req.body.id
+    }, function (err, result) {
+        if (err) console.log(err)
+        console.log(result)
     })
 })
 

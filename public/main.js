@@ -131,4 +131,8 @@ delButton.addEventListener('click', _ => {
 
 
 
+// // get onclick data
+// $(".phone").click(function (event) {
 
+
+// });
