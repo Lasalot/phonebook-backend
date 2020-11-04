@@ -34,14 +34,14 @@ top: 2rem;
         z-index: 5;
         position: relative;
         top: 2rem;
-        width: 7.5rem;
-        font-size: 13px !important;
+        width: 5.9rem;
+        font-size: 10px !important;
     }  
 .header-logo{
     height: 3rem;
 }
 .top-buttons{
-    max-height: 14rem;
+    max-height: 14rem;  
 }
 }
 @media screen and (max-width: 1700px){
@@ -62,17 +62,30 @@ top: 2rem;
     width: 12rem;
 }
 
-@media (min-width: 992px){
-    .col-lg-3{
-        min-height:700px;
-    }
-
+.img-table-row:hover .img-table:hover{
+    position: relative;
+    transform:scale(4);
+    margin-right: 17% !important;
+box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+.img-table-row{
+    padding-left: 15rem !important;
+    text-align: left !important;
+}
+
+.img-test:hover{
+    font-size: 22px;
+}
 
 .header-logo{
     height: 5rem;
 }
+}
+@media (min-width: 992px){
+    .col-lg-3{
+        min-height:700px;
+    }
 }
 .hide-btn{
     z-index: 5;
@@ -107,7 +120,9 @@ top: 2rem;
     font-family: 'Mulish', sans-serif;
     font-weight: 900;
 }
-
+.img-table-test{
+    display:inline-block;
+}
 .prompt-text{
     font-family: 'Mulish', sans-serif;
     font-weight: 900;
@@ -134,7 +149,7 @@ top: 2rem;
       height: 0px;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
-    z-index: -1;
+    z-index: -2;
     text-align: center;
     margin: auto;
 }
@@ -177,6 +192,9 @@ margin-top: 30px
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
     text-align: center;
+    background-color: #F7F6F7;
+    z-index: 1;
+    position: relative;
 }
 
 .card-deck {
@@ -289,9 +307,9 @@ body{
     position: relative;
 }
 .img-table{
-    width: 2rem;
+    width: 2.5rem;
     border-radius: 50%;
-    margin-right: 2%;
+    margin-right: 3%;
 }
 .col-lg3:hover{
     min-height: 700px;
