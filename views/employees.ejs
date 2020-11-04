@@ -203,9 +203,7 @@
             <ul class="list-group list-group-flush">
               <li value="<%= entries[i].phone %>" class="list-group-item phone">Telefon: <%= entries[i].phone %></li>
               <li class="list-group-item">Email: <%= entries[i].email %></li>
-              <li class="list-group-item">
-                LastPass: <%= entries[i].lastPassEmail %>
-              </li>
+              <li class="list-group-item">LastPass: <%= entries[i].lastPassEmail %></li>
 
             </ul>
           </div>
@@ -236,7 +234,7 @@
     <tr>
     <th scope="row"><img class="img-table" src="<%= entries[i].image %>" alt="<%= entries[i].lastName %> <%= entries[i].firstName %>" /><%= entries[i].lastName %> <%= entries[i].firstName %></th>
   <td><%= entries[i].title %></td>
-<td><%= entries[i].phone %></td>
+<td"><%= entries[i].phone %></td>
 <td class="email-maxw"><a class="email-text" href="mailto:<%= entries[i].email %>"><%= entries[i].email %></a></td>
 <td><%= entries[i].lastPassEmail %></td>
 </tr>

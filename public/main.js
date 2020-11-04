@@ -104,9 +104,6 @@ changeView.addEventListener('click', _ => {
 });
 
 
-
-
-
 // ASK PROMPT ON DELETE
 const delButton = document.querySelector('#delete-entry-button')
 delButton.addEventListener('click', _ => {
